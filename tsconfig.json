@@ -20,8 +20,9 @@
       "@helpers/*": ["./src/helpers/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@pages/*": ["./src/pages/*"],
+      "@providers/*": ["./src/pages/*"],
       "@services/*": ["./src/services/*"],
-      "@models/*": ["./src/models/*"]
+      "@entities/*": ["./src/entities/*"]
     }
   },
   "include": ["src"],
