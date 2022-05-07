@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { getAllProducts } from '@services/products'
-import { Product } from '@models/product'
+import { Product } from '@types/product'
 
 type ProductContextType = {
   products: Product[]

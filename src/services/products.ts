@@ -1,5 +1,5 @@
-import { ProductInputDTO } from '@models/dto/product-input-dto'
-import { Product } from '@models/product'
+import { ProductInputDTO } from '@entities/dto/product-input-dto'
+import { Product } from '@entities/product'
 import httpClient from './http.js'
 
 async function getAllProducts(): Promise<Product[]> {

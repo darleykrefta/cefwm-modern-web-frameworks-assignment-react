@@ -1,8 +1,11 @@
 import React, { FormEvent } from 'react'
-import { Button, Modal, Textfield, Typography } from '@components'
+import { Button } from '@components/button'
+import { Modal } from '@components/modal'
+import { Textfield } from '@components/textfield'
+import { Typography } from '@components/typography'
 import { useProducts } from '@hooks/useProducts'
 import { postProduct } from '@services/products'
-import { ProductInputDTO } from '@models/dto/product-input-dto'
+import { ProductInputDTO } from '@types/dto/product-input-dto'
 
 type ProductModalCreateProps = {
   isOpen: boolean

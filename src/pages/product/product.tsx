@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header } from '@components'
+import { Header } from '@components/header'
 
 import { ProductModalCreate } from './product-modal-create'
 import { ProductList } from './product-list'

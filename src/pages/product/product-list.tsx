@@ -1,4 +1,4 @@
-import { Table } from '@components'
+import { Table } from '@components/table'
 import { formatMoney } from '@helpers/format'
 import { useProducts } from '@hooks/useProducts'
 
