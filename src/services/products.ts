@@ -7,9 +7,19 @@ async function getAllProducts(): Promise<Product[]> {
   return client.get('products')
 }
 
+async function getProduct(id: string): Promise<Product> {
+  const client = httpClient()
+  return client.get(`products/${id}`)
+}
+
 async function postProduct(product: ProductInputDTO): Promise<Product> {
   const client = httpClient()
   return client.post('products', product)
 }
 
-export { getAllProducts, postProduct }
+async function putProduct(product: ProductInputDTO, id: string): Promise<Product> {
+  const client = httpClient()
+  return client.put(`products/${id}`, product)
+}
+
+export { getAllProducts, getProduct, postProduct, putProduct }

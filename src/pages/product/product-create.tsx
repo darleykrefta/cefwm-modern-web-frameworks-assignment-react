@@ -1,18 +1,17 @@
 import React, { FormEvent } from 'react'
 import { Button } from '@components/button'
-import { Modal } from '@components/modal'
 import { Textfield } from '@components/textfield'
 import { Typography } from '@components/typography'
 import { useProducts } from '@hooks/useProducts'
 import { postProduct } from '@services/products'
-import { ProductInputDTO } from '@types/dto/product-input-dto'
+import { ProductInputDTO } from '@entities/dto/product-input-dto'
+import { Header } from '@components/header'
+import { useNavigate } from 'react-router-dom'
 
-type ProductModalCreateProps = {
-  isOpen: boolean
-  onClose: () => void
-}
+type ProductCreateProps = {}
 
-export const ProductModalCreate = ({ isOpen, onClose }: ProductModalCreateProps) => {
+export const ProductCreate = ({}: ProductCreateProps) => {
+  const navigate = useNavigate()
   const { refetch } = useProducts()
 
   const [values, setValues] = React.useState<ProductInputDTO>({
@@ -32,21 +31,24 @@ export const ProductModalCreate = ({ isOpen, onClose }: ProductModalCreateProps)
 
     postProduct(values).then(() => {
       refetch()
-      onClose()
+      navigate('/product')
     })
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <Typography variant="h3" text="Create product" />
-
-      {JSON.stringify(values, null, 4)}
+    <>
+      <Header title="Create product" />
 
       <form onSubmit={handleSubmit}>
         <Textfield type="text" placeholder="Name" onChange={handleChangeValue('name')}></Textfield>
         <Textfield type="number" placeholder="Price" onChange={handleChangeValue('price')}></Textfield>
-        <Button type="submit">Save</Button>
+        <div style={{ display: 'flex', gap: 10 }}>
+          <Button variant="secondary" onClick={() => navigate('/product')}>
+            Back
+          </Button>
+          <Button type="submit">Save</Button>
+        </div>
       </form>
-    </Modal>
+    </>
   )
 }

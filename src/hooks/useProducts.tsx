@@ -1,42 +1,11 @@
-import * as React from 'react'
-import { getAllProducts } from '@services/products'
-import { Product } from '@types/product'
-
-type ProductContextType = {
-  products: Product[]
-  refetch: () => void
-}
-
-type ProductsProviderProps = {
-  children: React.ReactNode
-}
-
-const ProductContext = React.createContext<ProductContextType>({} as ProductContextType)
-
-export const ProductsProvider = ({ children }: ProductsProviderProps) => {
-  const [products, setProducts] = React.useState<Product[]>([])
-
-  const refetch = () => {
-    getAllProducts().then(data => setProducts(data))
-  }
-
-  React.useEffect(() => {
-    refetch()
-  }, [])
-
-  return (
-    <ProductContext.Provider
-      value={{
-        products,
-        refetch
-      }}
-    >
-      {children}
-    </ProductContext.Provider>
-  )
-}
+import { useRecoilRefresher_UNSTABLE, useRecoilValue } from 'recoil'
+import { productsState } from '../stores/product'
 
 export const useProducts = () => {
-  const context = React.useContext(ProductContext)
-  return context
+  const products = useRecoilValue(productsState)
+  const refetch = useRecoilRefresher_UNSTABLE(productsState)
+  return {
+    products,
+    refetch
+  }
 }
