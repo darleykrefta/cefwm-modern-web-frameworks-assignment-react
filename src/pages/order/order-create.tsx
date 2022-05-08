@@ -1,4 +1,3 @@
-import React, { FormEvent } from 'react'
 import { Button } from '@components/button'
 import { useProducts } from '@hooks/useProducts'
 import { Header } from '@components/header'

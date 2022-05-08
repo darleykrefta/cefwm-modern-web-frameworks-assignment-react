@@ -1,5 +1,5 @@
 export interface ProductInputDTO {
   name: string
-  price: string
+  price: number
   restaurant_uuid?: string
 }

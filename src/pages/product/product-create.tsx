@@ -1,7 +1,6 @@
 import React, { FormEvent } from 'react'
 import { Button } from '@components/button'
 import { Textfield } from '@components/textfield'
-import { Typography } from '@components/typography'
 import { useProducts } from '@hooks/useProducts'
 import { postProduct } from '@services/products'
 import { ProductInputDTO } from '@entities/dto/product-input-dto'
@@ -16,7 +15,7 @@ export const ProductCreate = ({}: ProductCreateProps) => {
 
   const [values, setValues] = React.useState<ProductInputDTO>({
     name: '',
-    price: '0',
+    price: 0,
     restaurant_uuid: '00b8fd02-eba0-48ed-8806-8d88176f9c42'
   })
 

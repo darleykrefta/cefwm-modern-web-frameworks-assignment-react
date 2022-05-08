@@ -15,8 +15,7 @@ function httpClient(baseUrl: string = BASE_URL): ClientTypes {
     timeout: 1000,
     headers: {
       'Content-type': 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVXNlciIsInV1aWQiOiI3ZTk3NzlmNi0xNWRhLTQ0NTctYjdlZS1lMDI2MzI5Y2I2MDUiLCJ1c2VyX25hbWUiOiJ1c2VyQHVzZXIuY29tIiwianRpIjoiMTg5M2QyMjgtZTJmMC00YTQzLWFlOTktYzgwNzkzNmJkZjhmIiwiY2xpZW50X2lkIjoiZGVsaXZlcnkiLCJzY29wZSI6WyJSRUFEIiwiV1JJVEUiXX0.ufUFFlWnO8SsKiksWECmLgx0AF_01DpYNpZgGlfz_Wc'
+      Authorization: ''
     }
   })
 

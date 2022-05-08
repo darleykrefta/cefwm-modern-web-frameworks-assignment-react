@@ -14,7 +14,7 @@ export const ProductEdit = ({}: ProductEditProps) => {
   const { refetch } = useProducts()
   const { productId } = useParams()
 
-  const [values, setValues] = React.useState<ProductInputDTO>({ name: '', price: '0' })
+  const [values, setValues] = React.useState<ProductInputDTO>({ name: '', price: 0 })
 
   React.useEffect(() => {
     if (productId) {
