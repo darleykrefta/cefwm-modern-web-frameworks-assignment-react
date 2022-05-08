@@ -1,16 +1,17 @@
-import { StyledButton, StyledTitle, StyledWrapper } from './styles'
+import { Button } from '@components/button'
+import { StyledContainer, StyledTitle } from './styles'
 
 type HeaderProps = {
   title: string
-  action: () => void
-  actionText: string
+  action?: () => void
+  actionText?: string
 }
 
 export const Header = ({ title, action, actionText }: HeaderProps) => {
   return (
-    <StyledWrapper>
+    <StyledContainer>
       <StyledTitle>{title}</StyledTitle>
-      <StyledButton onClick={() => action()}>{actionText}</StyledButton>
-    </StyledWrapper>
+      {!!action && <Button onClick={() => action()}>{actionText}</Button>}
+    </StyledContainer>
   )
 }

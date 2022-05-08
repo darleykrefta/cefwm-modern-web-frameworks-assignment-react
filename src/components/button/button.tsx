@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const StyledButton = styled.button`
-  width: 100%;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLElement> {
+  variant?: 'primary' | 'secondary'
+}
+
+const StyledButton = styled.button<ButtonProps>`
   padding: 0 1.5rem;
-  height: 4rem;
+  height: 2rem;
   background: var(--blue);
   color: white;
   border-radius: 0.25rem;
@@ -18,8 +21,16 @@ const StyledButton = styled.button`
   &:hover {
     filter: brightness(0.9);
   }
+
+  ${props =>
+    props.variant === 'secondary' &&
+    `
+    border: 2px solid var(--blue);
+    background-color: white;
+    color: var(--blue);
+  `}
 `
 
-export const Button = (props: React.ButtonHTMLAttributes<HTMLElement>) => {
-  return <StyledButton {...props} />
+export const Button = ({ variant = 'primary', ...props }: ButtonProps) => {
+  return <StyledButton {...props} variant={variant} />
 }
