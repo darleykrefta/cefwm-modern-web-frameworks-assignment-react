@@ -1,8 +1,8 @@
-import { Product } from './product'
+import { OrderItem } from './order-item'
 
 export type Order = {
   uuid: string
   name: string
-  total: string
-  items: Product[]
+  total: number
+  items: OrderItem[]
 }
