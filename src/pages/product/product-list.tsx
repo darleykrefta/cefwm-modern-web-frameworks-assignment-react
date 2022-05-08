@@ -1,9 +1,9 @@
-import { Button } from '@components/button'
 import { Header } from '@components/header'
 import { Table } from '@components/table'
 import { formatMoney } from '@helpers/format'
 import { useProducts } from '@hooks/useProducts'
 import { Link, useNavigate } from 'react-router-dom'
+import { GrFormEdit } from 'react-icons/gr'
 
 export const ProductList = () => {
   const navigate = useNavigate()
@@ -26,7 +26,9 @@ export const ProductList = () => {
               <Table.Td>{item.name}</Table.Td>
               <Table.Td isMoney>{formatMoney(Number(item.price))}</Table.Td>
               <Table.Td>
-                <Link to={`/product/${item.uuid}`}>pencil</Link>
+                <Link to={`/product/${item.uuid}`}>
+                  <GrFormEdit size={24} />
+                </Link>
               </Table.Td>
             </tr>
           ))}
